@@ -6,40 +6,34 @@ public class GameTile {
     private int y;
     private int data;
 
-    public GameTile(int x, int y, boolean isMine) {
-        this.x = x;
-        this.y = y;
-        this.data = (isMine ? -1 : 0);
-    }
-
-    public GameTile(int x, int y, int surroundingMines) {
-        this.x = x;
-        this.y = y;
-        this.data = surroundingMines;
+    public GameTile(int xPos, int yPos, boolean isMine) {
+        x = xPos;
+        y = yPos;
+        data = (isMine ? -1 : 0);
     }
 
     public int getX() {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(int newX) {
+        x = newX;
     }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(int newY) {
+        y = newY;
     }
 
     public boolean isMine() {
         return data == -1;
     }
 
-    public void setMine(boolean isMine) {
-        this.data = -1;
+    public void setMine() {
+        data = -1;
     }
 
     public int getSurroundingMines() {
@@ -47,7 +41,7 @@ public class GameTile {
     }
 
     public void setSurroundingMines(int surroundingMines) {
-        this.data = surroundingMines;
+        data = surroundingMines;
     }
 
 }

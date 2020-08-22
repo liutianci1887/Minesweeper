@@ -6,10 +6,12 @@ public class GameBoard {
     private final int dimensionX;
     private final int dimensionY;
 
-    public GameBoard(int dimensionX, int dimensionY) {
-        this.tiles = new GameTile[dimensionX][dimensionY];
-        this.dimensionX = dimensionX;
-        this.dimensionY = dimensionY;
+    public GameBoard(int dX, int dY) {
+        dimensionX = dX;
+        dimensionY = dY;
+
+        // Generate blank board
+        tiles = new GameTile[dimensionX][dimensionY];
     }
 
     public GameTile getTile(int x, int y) {
@@ -20,15 +22,17 @@ public class GameBoard {
     }
 
     public void setTile(int x, int y, GameTile tile) {
-        this.tiles[x][y] = tile;
+        tiles[x][y] = tile;
     }
 
-    public GameTile[][] getTiles() {
-        return tiles;
-    }
+    public void incrementMineCount(int x, int y) {
+        GameTile tile = getTile(x, y);
+        if (tile == null || tile.isMine()) {
+            return;
+        }
 
-    public void setTiles(GameTile[][] tiles) {
-        this.tiles = tiles;
+        // Is a tile surrounding a mine, so increment its counter by 1.
+        tile.setSurroundingMines(tile.getSurroundingMines() + 1);
     }
 
     @Override
