@@ -50,8 +50,12 @@ public class GameTile {
         return viewStatus == 0;
     }
 
-    public void setFlag() {
-        viewStatus = 1;
+    public void toggleFlag() {
+        if (viewStatus == 0) {
+            viewStatus = 1;
+        } else if (viewStatus == 1) {
+            viewStatus = 0;
+        }
     }
 
     public boolean isFlagged() {
@@ -60,5 +64,9 @@ public class GameTile {
 
     public void setVisible() {
         viewStatus = 2;
+    }
+
+    public boolean isVisible() {
+        return viewStatus == 2;
     }
 }

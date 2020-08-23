@@ -2,7 +2,7 @@ package minesweeper.model;
 
 public class GameBoard {
 
-    private GameTile[][] tiles;
+    private final GameTile[][] tiles;
     private final int dimensionX;
     private final int dimensionY;
 
@@ -23,6 +23,14 @@ public class GameBoard {
 
     public void setTile(int x, int y, GameTile tile) {
         tiles[x][y] = tile;
+    }
+
+    public boolean isTileFlagged(int x, int y) {
+        if (x < 0 || x > dimensionX - 1 || y < 0 || y > dimensionY - 1) {
+            return false;
+        }
+
+        return getTile(x, y).isFlagged();
     }
 
     public GameTile[][] getTiles() {

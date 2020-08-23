@@ -22,8 +22,8 @@ public class MinesweeperApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
-        primaryStage.setTitle("Minesweeper v0.1");
+        Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
+        primaryStage.setTitle("Minesweeper v0.2");
         primaryStage.setScene(new Scene(root));
         primaryStage.setAlwaysOnTop(true);
         primaryStage.show();
