@@ -25,16 +25,21 @@ public class GameBoard {
         tiles[x][y] = tile;
     }
 
+    public GameTile[][] getTiles() {
+        return tiles;
+    }
+
     public void incrementMineCount(int x, int y) {
         GameTile tile = getTile(x, y);
         if (tile == null || tile.isMine()) {
             return;
         }
 
-        // Is a tile surrounding a mine, so increment its counter by 1.
+        // Increment a non-mine tile's counter by 1.
         tile.setSurroundingMines(tile.getSurroundingMines() + 1);
     }
 
+    // For debug
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
